@@ -11,12 +11,12 @@ inserirRota("/buscar_usuario", (dados, resposta) => {
       return resposta({ erro: "É necessário preencher o nome" });
     }
   
-    if (!dados.nisckname) {
+    if (!dados.nickname) {
       return resposta({ erro: "É necessário preencher o nickname" });
     }
   
-    database(`INSERT INTO USUARIO (nome, sobrenome)
-                  VALUES (´${dados.nome}´, ´${dados.nickname}´)`)
+    database(`INSERT INTO USUARIO (nome, nickname)
+                  VALUES ("${dados.nome}", "${dados.nickname}")`)
       .then((result) => {
         console.log("USUARIO INSERIDO COM SUCESSO"),
           resposta({ message: "Usuario inserido com sucesso!" });
