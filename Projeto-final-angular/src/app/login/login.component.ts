@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +12,16 @@ export class LoginComponent implements OnInit {
   pass='';
   
   
-  constructor(private route: Router) { }
+  constructor(private route: Router , private elementRef: ElementRef) {
+    this.elementRef.nativeElement.ownerDocument
+    .body.style.backgroundColor = 'black';
+   }
+  
   
 
   ngOnInit() {
   }
+
 
   listaUsuarios = [
     {username: "gustarz_", password: "248"},
