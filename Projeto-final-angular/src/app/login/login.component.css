@@ -35,3 +35,10 @@ body{
     height: 25px;
     border-radius: 10px;
 }
+
+#botao-cadastro{
+    margin: 2% 0 0 27%;
+    width: 50%;
+    height: 25px;
+    border-radius: 10px;
+}
