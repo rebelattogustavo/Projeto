@@ -1,0 +1,25 @@
+.txt{
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+  color: white;
+}
+
+.div-img{
+  display: flex;
+  align-items: center;
+}
+
+#img-ben1{
+  width: 200px;
+}
+
+#img-ben2{
+  width: 160px;
+}
+#img-ben3{
+  width: 160px;
+}
+#img-ben4{
+  width: 240px;
+}

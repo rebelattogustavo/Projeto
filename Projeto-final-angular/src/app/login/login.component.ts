@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ElementRef } from '@angular/core';
+import {
+  AuthService,
+  GoogleLoginProvider,
+} from 'angular-6-social-login-v2';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +16,7 @@ export class LoginComponent implements OnInit {
   pass='';
   
   
-  constructor(private route: Router , private elementRef: ElementRef) {
+  constructor(private route: Router , private elementRef: ElementRef, private socialAuthService: AuthService) {
     this.elementRef.nativeElement.ownerDocument
     .body.style.backgroundColor = 'black';
    }
@@ -21,6 +25,18 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
+
+
+  public socialSignIn(socialPlatform : string) {
+    let socialPlatformProvider;
+    if(socialPlatform == "google"){
+      socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+    }
+    this.socialAuthService.signIn(socialPlatformProvider).then(
+      (userData) => {
+        console.log(socialPlatform+" sign in data : " , userData);
+        this.route.navigate(['main'])
+  })};
 
 
   listaUsuarios = [

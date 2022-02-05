@@ -10,7 +10,6 @@ body{
     width: 100%;
     height: 120px;
     margin-top: 15%;
-    /* background-color: aqua; */
 }
 
 .div-back{
@@ -29,6 +28,10 @@ body{
     border-radius: 10px;
 }
 
+.inputs{
+    width:97%
+}
+
 #botao-entrar{
     margin-left: 36%;
     width: 32%;
@@ -37,7 +40,13 @@ body{
 }
 
 #botao-cadastro{
-    margin: 2% 0 0 27%;
+    margin: 2% 0 0 32%;
+    width: 40%;
+    height: 25px;
+    border-radius: 10px;
+}
+#botao-google{
+    margin: 2% 0 0 28%;
     width: 50%;
     height: 25px;
     border-radius: 10px;
