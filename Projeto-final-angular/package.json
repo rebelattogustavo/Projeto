@@ -1,9 +1,10 @@
 {
   "name": "final-project",
   "version": "0.0.0",
+  "proxy": "http://localhost:3000",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --o",
+    "start": "ng serve --proxy-config proxy.conf.json --o",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
