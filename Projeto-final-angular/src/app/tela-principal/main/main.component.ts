@@ -15,4 +15,17 @@ export class MainComponent implements OnInit {
   ngOnInit() {
   }
 
+  imageURL 
+  teste
+  openModal
+
+  mostrarImagem(event){
+    const file = new FileReader
+    file.onload = (e) => {
+      this.imageURL = e.target.result;
+    }
+    this.teste = 1
+    file.readAsDataURL(event.target.files[0])
+  }
+
 }

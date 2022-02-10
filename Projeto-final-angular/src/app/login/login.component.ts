@@ -47,53 +47,53 @@ export class LoginComponent implements OnInit {
         this.route.navigate(['main'])
   })};
 
-  // listaUsuarios = [
-  //   {username: "gustarz_", password: "248"},
-  //   {username: "leo_rafa", password: "842"},
-  //   {username: "a", password: "a"},
-  //   {username: "sant_otavio", password: "428"}
-  // ]
+  listaUsuarios = [
+    {username: "gustarz_", password: "248"},
+    {username: "leo_rafa", password: "842"},
+    {username: "a", password: "a"},
+    {username: "sant_otavio", password: "428"}
+  ]
   
-  // login(){
-  //   let conta = 0;
-  //   for(let i of this.listaUsuarios){
-  //     if(i.username == this.user && i.password == this.pass){
-  //       localStorage.setItem('USER: ', this.user);
-  //       localStorage.setItem('PASS: ', this.pass);
-  //       this.route.navigate(['/main/'])
-  //       conta++;
-  //     }
-  //   }
-  //   if(conta==0){
-  //     alert('Usuário inválido!')
-  //   }
-  // }
-
   login(){
-        fetch('/api/buscar_usuario',
-      {
-          method: 'POST',
-          body: JSON.stringify(
-              {
-                  nickname: this.user, password: this.pass
-              }
-          ),
-          headers: {
-              'Content-Type': 'application/json'
-          }
+    let conta = 0;
+    for(let i of this.listaUsuarios){
+      if(i.username == this.user && i.password == this.pass){
+        localStorage.setItem('USER: ', this.user);
+        localStorage.setItem('PASS: ', this.pass);
+        this.route.navigate(['/main/'])
+        conta++;
       }
-  ).then(function (result){
-      return result.json();
-  }).then(function (dados){
-      console.log(dados);
-  }).catch(function(erro){
-    console.log(erro);
-  })
+    }
+    if(conta==0){
+      alert('Usuário inválido!')
+    }
   }
 
-  cadastro(){
-    this.route.navigate(['/cadastro/'])
-  }
+//   login(){
+//         fetch('/api/buscar_usuario',
+//       {
+//           method: 'POST',
+//           body: JSON.stringify(
+//               {
+//                   nickname: this.user, password: this.pass
+//               }
+//           ),
+//           headers: {
+//               'Content-Type': 'application/json'
+//           }
+//       }
+//   ).then(function (result){
+//       return result.json();
+//   }).then(function (dados){
+//       console.log(dados);
+//   }).catch(function(erro){
+//     console.log(erro);
+//   })
+//   }
+
+//   cadastro(){
+//     this.route.navigate(['/cadastro/'])
+//   }
 
 
-}
+// }
