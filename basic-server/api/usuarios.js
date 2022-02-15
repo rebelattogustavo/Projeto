@@ -20,8 +20,8 @@ inserirRota("/buscar_usuario", (dados, resposta) => {
 inserirRota("/login", (dados, resposta) => {
   console.log(dados);
 
-  database(`SELECT * FROM USUARIO WHERE NICKNAME = "${dados.nickname}" AND
-            `)
+  database(`SELECT * FROM USUARIO WHERE NOME = "${dados.nome}" AND
+            PASSWORD = "${dados.password}"`)
     .then((result) => {
       resposta({ list: result })
     })

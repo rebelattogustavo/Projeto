@@ -56,21 +56,25 @@ export class LoginComponent implements OnInit {
   
   login(){
     let conta = 0;
-
-    this.usuarioService.buscarUsuario()
-    .then((resultado: User[]) =>{
-      console.log(resultado)
-      for(let i=0; i <= resultado.length; i++) {
-        if (this.user == resultado[i].NOME && this.pass == resultado[i].PASSWORD){
-          this.route.navigate(['/main']);
-          conta++;
-        }
-        if(conta = 0){
-          alert("USUÁRIO INVÁLIDO")
-        }
-      } 
+    if(this.user == "" || this.pass == ""){
+      alert("INVÁLIDO FILHA DA PULTA")
+    }else {
+      this.usuarioService.buscarUsuario()
+      .then((resultado: User[]) =>{
+        console.log(resultado)
+        for(let i=0; i < resultado.length; i++) {
+          if (this.user == resultado[i].NOME && this.pass == resultado[i].PASSWORD){
+            this.route.navigate(['/main']);
+            conta++;
+          }
+          if(conta = 0){
+            alert("USUÁRIO INVÁLIDO")
+          }
+        } 
+      }
+      )}
+  
     }
-    )}
 
   //   for(let i of this.listaUsuarios){
   //     if(i.username == this.user && i.password == this.pass){
@@ -113,5 +117,5 @@ export class LoginComponent implements OnInit {
 
 interface User {
   NOME: string;
-  PASSWORD: string
+  PASSWORD: string;
 }
