@@ -13,14 +13,16 @@ body{
 }
 
 .div-back{
-    display: grid;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-width: 25%;
-    height: 40vh;
-    background-color: grey;
+    row-gap: 16px;
+    min-width: 30%;
+    height: 50vh;
+    background-color: gray;
+    opacity: 0.6;
     border-radius: 20px;
-    
 }
 
 .login{
@@ -29,35 +31,165 @@ body{
 }
 
 .login:hover{
+    transition: 0.9s;
     cursor: pointer;
+    color: rgb(0, 0, 0);
+}
+
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 250px;
+    border-radius: 3px;
+    padding: 10px 15px;
+    margin: 0 auto 10px auto;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: rgb(224, 224, 224);
+    transition-duration: 0.25s;
+    font-weight: 300;
+}
+input:hover {
+    background-color: rgba(151, 151, 151, 0.4);
+}
+input:focus {
+    background-color: rgb(255, 255, 255);
+    width: 300px;
     color: black;
 }
 
-.div-inputs{
-    border: 4px solid black;
-    border-radius: 10px;
+.div-botao{
+    display: grid;
+    justify-content: center;
+    align-items: center;
 }
 
-.inputs{
-    width:97%
+#botao-entrar {
+    border: 2px solid currentColor;
+    border-radius: 50px;
+    color: rgb(119, 113, 122);
+    font-family: roboto;
+    font-size: 17px;
+    font-weight: 50;
+    overflow: hidden;
+    padding: 5px 20px;
+    text-decoration: none;
+    transition: 0.2s transform ease-in-out;
+    will-change: transform;
+    margin: 0 0 1% 24%;
+}
+#botao-entrar::after {
+    background-color: rgb(0, 0, 0);
+    border-radius: 4px;
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-100%, 0) rotate(10deg);
+    transform-origin: top left;
+    transition: 0.2s transform ease-out;
+    will-change: transform;
+    z-index: -1;
+}
+#botao-entrar:hover::after {
+    transform: translate(0, 0);
+}
+#botao-entrar:hover {
+    border: 2px solid transparent;
+    color: #ffffff;
+    transform: scale(1.05);
+    will-change: transform;
+    cursor: pointer;
 }
 
-#botao-entrar{
-    margin-left: 36%;
-    width: 32%;
-    height: 25px;
-    border-radius: 10px;
+#botao-cadastro {
+    border: 2px solid currentColor;
+    border-radius: 50px;
+    color: rgb(119, 113, 122);
+    font-family: roboto;
+    font-size: 17px;
+    font-weight: 50;
+    overflow: hidden;
+    padding: 5px 20px;
+    text-decoration: none;
+    transition: 0.2s transform ease-in-out;
+    will-change: transform;
+    z-index: 0;
+    margin: 0 0 0.5% 15%;
 }
+#botao-cadastro::after {
+    background-color: rgb(0, 0, 0);
+    border-radius: 4px;
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-100%, 0) rotate(10deg);
+    transform-origin: top left;
+    transition: 0.2s transform ease-out;
+    will-change: transform;
+    z-index: -1;
+  }
+  #botao-cadastro:hover::after {
+    transform: translate(0, 0);
+  }
+  #botao-cadastro:hover {
+    border: 2px solid transparent;
+    color: #ffffff;
+    transform: scale(1.05);
+    will-change: transform;
+    cursor: pointer;
+  }
 
-#botao-cadastro{
-    margin: 2% 0 0 32%;
-    width: 40%;
-    height: 25px;
-    border-radius: 10px;
-}
-#botao-google{
-    margin: 2% 0 0 28%;
-    width: 50%;
-    height: 25px;
-    border-radius: 10px;
-}
+#botao-google {
+    border: 2px solid currentColor;
+    border-radius: 50px;
+    color: rgb(119, 113, 122);
+    font-family: roboto;
+    font-size: 17px;
+    font-weight: 50;
+    overflow: hidden;
+    padding: 5px 20px;
+    text-decoration: none;
+    transition: 0.2s transform ease-in-out;
+    will-change: transform;
+    z-index: 0;
+    margin: 1%;
+  }
+  #botao-google::after {
+    background-color: rgb(0, 0, 0);
+    border-radius: 4px;
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-100%, 0) rotate(10deg);
+    transform-origin: top left;
+    transition: 0.2s transform ease-out;
+    will-change: transform;
+    z-index: -1;
+  }
+  #botao-google:hover::after {
+    transform: translate(0, 0);
+  }
+  #botao-google:hover {
+    border: 2px solid transparent;
+    color: #ffffff;
+    transform: scale(1.05);
+    will-change: transform;
+    cursor: pointer;
+  }

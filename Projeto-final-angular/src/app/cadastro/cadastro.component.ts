@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsuarioService } from '../services/usuario.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class CadastroComponent implements OnInit {
 
-  constructor(private route: Router, private elementRef: ElementRef) {
+  constructor(private route: Router, private elementRef: ElementRef, private user: UsuarioService) {
     this.elementRef.nativeElement.ownerDocument
     .body.style.backgroundColor = 'black'; { }
   }
@@ -16,8 +17,15 @@ export class CadastroComponent implements OnInit {
   ngOnInit() {
   }
 
+  nome = "";
+  password = "";
+
   voltar(){
     this.route.navigate([''])
+  }
+
+  cadastrar(){
+    this.user.criarUsuario(this.nome, this.password)
   }
 
 }

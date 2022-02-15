@@ -11,9 +11,15 @@
       <input class="inputs" placeholder="Password" type="password" [(ngModel)]="pass" class="inputs">
     </div>
     <div id="div-botao">
-      <button (click)="login()" id="botao-entrar">Login</button>
-      <button (click)="cadastro()" id="botao-cadastro">Cadastre-se</button>
-      <button (click)="socialSignIn('google')" id="botao-google">Entre com o Google</button>
+      <div>
+        <button (click)="login()" id="botao-entrar">Login</button>
+      </div>
+      <div>
+        <button (click)="cadastro()" id="botao-cadastro">Cadastre-se</button>
+      </div>
+      <div>
+        <button (click)="socialSignIn('google')" id="botao-google">Entre com o Google</button>
+      </div>
     </div>
     
   </div>

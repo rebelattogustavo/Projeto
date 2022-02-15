@@ -1,16 +1,10 @@
 <div class="div-geral">
   <div class="div-back">
     <div class="div-inputs">
-      <input type="text" placeholder="Nome">
+      <input type="text" placeholder="Nome" [(ngModel)]="nome">
     </div>
     <div class="div-inputs">
-      <input type="text" placeholder="Sobrenome">
-    </div>
-    <div class="div-inputs">
-      <input type="text" placeholder="Email">
-    </div>
-    <div class="div-inputs">
-      <input type="text" placeholder="Senha">
+      <input type="password" placeholder="Senha" [(ngModel)]="password">
     </div>
     <div id="div-botao">
       <button (click)="cadastrar()" id="botao-cadastrar">Cadastrar</button>

@@ -15,6 +15,12 @@
   color: white;
 }
 
+#logo-txt:hover{
+  cursor: pointer;
+  color: #878787;
+  transition: 1s;
+}
+
 .div-img{
   display: flex;
   align-items: center;

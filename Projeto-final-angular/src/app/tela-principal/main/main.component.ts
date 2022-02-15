@@ -1,4 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-main',
@@ -7,7 +9,7 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor( private elementRef: ElementRef) {
+  constructor( private elementRef: ElementRef, private route: Router) {
     this.elementRef.nativeElement.ownerDocument
     .body.style.backgroundColor = 'black';
    }
@@ -26,6 +28,10 @@ export class MainComponent implements OnInit {
     }
     this.teste = 1
     file.readAsDataURL(event.target.files[0])
+  }
+
+  redimensiona(){
+    this.route.navigate(['/main'])
   }
 
 }
