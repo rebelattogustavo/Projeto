@@ -8,6 +8,16 @@ inserirRota("/buscar_usuario", (dados, resposta) => {
     });
 });
 
+inserirRota("/buscar_manager", (dados, resposta) => {
+  console.log(dados);
+  database(`SELECT * FROM MANAGER`)
+    .then((result) => {
+      resposta(result)
+    }).catch((erro) => {
+        resposta({resposta: erro})
+    });
+});
+
 // inserirRota('/buscar_usuario', (dados, resposta) => {
 //   console.log(dados);
 //   database('SELECT * FROM USER').then(result => {

@@ -9,14 +9,22 @@ database(`CREATE TABLE IF NOT EXISTS USUARIO (
     console.log(erro);
 });
 
-database(`CREATE TABLE IF NOT EXISTS ADM (
+database(`CREATE TABLE IF NOT EXISTS MANAGER (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     NOME varchar(45) not null,
     PASSWORD varchar(30) not null
     )`).then(result => {
-    console.log('TABELA ADM CRIADA COM SUCESSO');
+    console.log('TABELA MANAGER CRIADA COM SUCESSO');
 }).catch(erro => {
-    console.log('TABELA ADM COM ERRO NA CRIAÇÃO');
+    console.log('TABELA MANAGER COM ERRO NA CRIAÇÃO');
+    console.log(erro);
+});
+
+database(`INSERT INTO MANAGER (NOME, PASSWORD)  
+            VALUES('a', 'a')`).then(result => {
+    console.log('DADOS INSERIDOS COM SUCESSO');
+}).catch(erro => {
+    console.log('DADOS NÃO INSERIDOS');
     console.log(erro);
 });
 
