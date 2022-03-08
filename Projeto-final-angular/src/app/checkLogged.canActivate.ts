@@ -17,7 +17,7 @@ class CheckLogged implements CanActivate{
         ): Observable<boolean> | Promise<boolean> | boolean {
         console.log('DENTRO')
 
-        let user = localStorage.getItem('listaUsuarios')
+        let user = localStorage.getItem('buscarUsuario')
         
         if(user){
             return true;

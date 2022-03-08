@@ -4,6 +4,8 @@ import { MainComponent } from './main/main.component';
 import { Routes, RouterModule } from '@angular/router';
 import CheckLogged from '../checkLogged.canActivate';
 import { MainManagerComponent } from './main-manager/main-manager.component';
+import { CadastrosModule } from '../cadastros/cadastros.module';
+import { CadastroProdutoComponent } from '../cadastros/cadastro-produto/cadastro-produto.component';
 
 const routes: Routes = [
   { 
@@ -12,12 +14,14 @@ const routes: Routes = [
     children: [
       { path: 'main', component: MainComponent},
       { path: 'main-manager', component: MainManagerComponent},
+      { path: 'cadastro-produtos', component: CadastroProdutoComponent},
   ]}
 ];
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    CadastrosModule
   ],
   declarations: [MainComponent, MainManagerComponent],
   providers: [CheckLogged]

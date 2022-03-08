@@ -7,6 +7,7 @@ import {
 } from 'angular-6-social-login-v2';
 import  { UsuarioService } from '../services/usuario.service'
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -47,17 +48,10 @@ export class LoginComponent implements OnInit {
         this.route.navigate(['main'])
   })};
 
-  // listaUsuarios = [
-  //   {username: "gustarz_", password: "248"},
-  //   {username: "leo_rafa", password: "842"},
-  //   {username: "a", password: "a"},
-  //   {username: "sant_otavio", password: "428"}
-  // ]
-  
   login(){
     let conta = 0;
     if(this.user == "" || this.pass == ""){
-      alert("INVÁLIDO FILHA DA PULTA")
+      alert("INVÁLIDO")
     }else {
       this.usuarioService.buscarUsuario()
       .then((resultado: User[]) =>{
@@ -67,10 +61,29 @@ export class LoginComponent implements OnInit {
             this.route.navigate(['/main']);
             conta++;
           }
-          if(conta = 0){
-            alert("USUÁRIO INVÁLIDO")
-          }
         } 
+        if(conta = 0){
+          alert("USUÁRIO INVÁLIDO")
+        }
+      }
+      )}
+
+    let conta2 = 0;
+    if(this.user == "" || this.pass == ""){
+      alert("INVÁLIDO")
+    }else {
+      this.usuarioService.buscarManager()
+      .then((resultado: User[]) =>{
+        console.log(resultado)
+        for(let i=0; i < resultado.length; i++) {
+          if (this.user == resultado[i].NOME && this.pass == resultado[i].PASSWORD){
+            this.route.navigate(['/main-manager']);
+            conta2++;
+          }
+        }
+        if(conta2 = 0){
+          alert("USUÁRIO INVÁLIDO")
+        }
       }
       )}
   

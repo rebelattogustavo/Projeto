@@ -13,6 +13,10 @@ import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { TelaPrincipalModule } from './tela-principal/tela-principal.module';
 import { MainComponent } from './tela-principal/main/main.component';
+import { MainManagerComponent } from './tela-principal/main-manager/main-manager.component';
+import { CadastrosModule } from './cadastros/cadastros.module';
+import { CadastroProdutoComponent } from './cadastros/cadastro-produto/cadastro-produto.component';
+import CheckLogged from './checkLogged.canActivate';
 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
@@ -47,16 +51,25 @@ export function getAuthServiceConfigs() {
         path: 'main',
         component: MainComponent,
       },
+      {
+        path: 'main-manager',
+        component: MainManagerComponent,
+      },
+      { 
+        path: 'cadastro-produtos', 
+        component: CadastroProdutoComponent,
+      },
     ]),
     SocialLoginModule,
     BrowserModule,
     FormsModule,
-    TelaPrincipalModule
+    TelaPrincipalModule,
+    CadastrosModule
   ],
   providers: [{
     provide: AuthServiceConfig,
     useFactory: getAuthServiceConfigs
-  }],
+  }, CheckLogged],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

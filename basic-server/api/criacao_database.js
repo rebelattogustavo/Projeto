@@ -20,14 +20,6 @@ database(`CREATE TABLE IF NOT EXISTS MANAGER (
     console.log(erro);
 });
 
-database(`INSERT INTO MANAGER (NOME, PASSWORD)  
-            VALUES('a', 'a')`).then(result => {
-    console.log('DADOS INSERIDOS COM SUCESSO');
-}).catch(erro => {
-    console.log('DADOS NÃO INSERIDOS');
-    console.log(erro);
-});
-
 database(`CREATE TABLE IF NOT EXISTS FORNECEDOR (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     FORNECEDOR varchar(45) not null,

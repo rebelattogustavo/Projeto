@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-manager',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainManagerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private elementRef: ElementRef,private route: Router) { 
+    this.elementRef.nativeElement.ownerDocument
+    .body.style.backgroundColor = 'black';
+  }
 
   ngOnInit() {
+  }
+
+  cadastrarProduto(){
+    this.route.navigate(['/cadastro-produtos'])
+
   }
 
 }

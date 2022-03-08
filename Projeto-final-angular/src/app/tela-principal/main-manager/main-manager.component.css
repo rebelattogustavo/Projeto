@@ -1,0 +1,71 @@
+*{
+    color: white;
+}
+
+.div-geral{
+    background-color: gray;
+    opacity: 0.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 10vh;
+}
+
+.div-cadastrar-produto{
+    display: inline-block;
+    justify-content: left;
+    align-items: flex-start;
+    margin: 0 5vw 0 0;
+    width: 140px;
+    height: 45px;
+    text-align: center;
+    border-radius: 10px;
+    border: solid 2px transparent;
+}
+
+.div-cadastrar-produto:hover{
+    cursor: pointer;
+    border: solid 2px white;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.div-cadastrar-gerente{
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 0 8vw;
+    width: 140px;
+    height: 45px;
+    text-align: center;
+    border-radius: 10px;
+    border: solid 2px transparent;
+    
+}
+
+.div-cadastrar-gerente:hover{
+    cursor: pointer;
+    border: solid 2px white;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.div-perfil{
+    display: inline-block;
+    justify-content: end;
+    align-items: center;
+    text-align: center;
+    margin: 0 0 0 12vw;
+    width: 80px;
+    height: 20px;
+    border-radius: 10px;
+    border: solid 2px transparent;
+}
+
+.div-perfil:hover{
+    cursor: pointer;
+    border: solid 2px white;
+    border-radius: 10px;
+    transition: 1s;
+}
