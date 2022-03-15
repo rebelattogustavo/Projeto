@@ -2,13 +2,17 @@
   <div class="div-back">
     <div class="div-inputs">
       <div class="divs">
-        <input type="text" placeholder="Nome do tênis" id="nome-tenis">
+        <input type="file" (change)="imgCarrega($event)" id="img-tenis" accept=".png, .jpg, .jpeg, .pdf">
+        <img *ngIf="imgTenisURL" class="img-tenis" [src]="imgTenisURL"/>
+      </div>
+      <div class="divs">
+        <input type="text" placeholder="Nome do tênis" id="nome-tenis" [(NgModel)]="nome">
       </div>
       <div class="divs">
         <input type="number" placeholder="Valor do tênis" id="preco-tenis">
       </div>
-      <div class="divs">
-        <input type="file" id="img-tenis">
+      <div>
+        <button id="button-confirma" (click)="confirma()">Confirmar produto</button>
       </div>
     </div>
   </div>

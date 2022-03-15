@@ -64,6 +64,34 @@ inserirRota("/criar_usuario", (dados, resposta) => {
     });
 });
 
+inserirRota("/criar_produto", (dados, resposta) => {
+  console.log(dados);
+
+  if (!dados.nomeP) {
+    return resposta({ erro: "É necessário preencher o nome" });
+  }
+  if (!dados.preco) {
+    return resposta({ erro: "É necessário preencher o preco" });
+  }
+  if (!dados.quantidade) {
+    return resposta({ erro: "É necessário preencher o preco" });
+  }
+  if (!dados.img) {
+    return resposta({ erro: "É necessário inserir a imagem" });
+  }
+
+  database(`INSERT INTO PRODUTO (nome, password)
+                  VALUES (null, "${dados.nomeP}", "${dados.preco}", "${dados.quantidade}")`)
+    .then((result) => {
+      console.log("USUARIO INSERIDO COM SUCESSO"),
+        resposta({ message: "Usuario inserido com sucesso!" });
+    })
+    .catch((erro) => {
+      console.log("ERRO AO INSERIR USUARIO"),
+        resposta({ message: "Usuario não foi inserido :(" });
+    });
+});
+
 //   fetch('/api/buscar_usuario',
 //     {
 //         method: 'POST',

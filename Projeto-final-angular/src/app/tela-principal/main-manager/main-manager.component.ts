@@ -18,7 +18,6 @@ export class MainManagerComponent implements OnInit {
 
   cadastrarProduto(){
     this.route.navigate(['/cadastro-produtos'])
-
   }
 
 }

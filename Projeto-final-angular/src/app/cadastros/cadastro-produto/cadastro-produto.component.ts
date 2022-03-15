@@ -1,4 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProdutoService } from 'src/app/services/produto.service';
+
 
 @Component({
   selector: 'app-cadastro-produto',
@@ -7,7 +10,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 })
 export class CadastroProdutoComponent implements OnInit {
 
-  constructor(private elementRef: ElementRef) { 
+  constructor(private route: Router, private elementRef: ElementRef, private produto: ProdutoService) { 
     this.elementRef.nativeElement.ownerDocument
     .body.style.backgroundColor = 'black';
   }
@@ -15,4 +18,26 @@ export class CadastroProdutoComponent implements OnInit {
   ngOnInit() {
   }
 
+  imgTenisURL;
+
+  imgCarrega(event){
+    const file = new FileReader();
+    file.onload = (e) => {
+      this.imgTenisURL = e.target.result;
+    };
+    file.readAsDataURL(event.target.files[0]);
+    }
+
+    nome='';
+    preco='';
+    
+
+    confirma(){
+      this.produto.criarProduto(this.nome, this.preco)
+    }
+  
 }
+
+
+
+

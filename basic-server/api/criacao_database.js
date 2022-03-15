@@ -34,19 +34,6 @@ database(`CREATE TABLE IF NOT EXISTS FORNECEDOR (
     console.log(erro);
 });
 
-database(`CREATE TABLE IF NOT EXISTS ESTOQUE (
-    ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    ESTOQUE varchar(45) not null,
-    CORREDOR varchar(45),
-    LADO varchar(15),
-    ADM_ID int not null,
-    FOREIGN KEY(ADM_ID) REFERENCES ADM(ID) ON DELETE CASCADE ON UPDATE CASCADE
-    )`).then(result => {
-    console.log('TABELA ESTOQUE CRIADA COM SUCESSO');
-}).catch(erro => {
-    console.log('TABELA ESTOQUE COM ERRO NA CRIAÇÃO');
-    console.log(erro);
-});
 
 
 database(`CREATE TABLE IF NOT EXISTS PRODUTO (
@@ -54,10 +41,9 @@ database(`CREATE TABLE IF NOT EXISTS PRODUTO (
     NOME varchar(45) not null,
     VALOR double not null,
     QUANTIDADE int,
-    ESTOQUE_ID int not null,
+    BASE64 VARCHAR(99999),
     ADM_ID int not null,
     FORNECEDOR_ID int not null,
-    FOREIGN KEY (ESTOQUE_ID) REFERENCES ESTOQUE (ID) on delete cascade on update cascade,
     FOREIGN KEY (ADM_ID) REFERENCES ADM (ID) on delete cascade on update cascade,
     FOREIGN KEY (FORNECEDOR_ID) REFERENCES FORNECEDOR (ID) on delete cascade on update cascade
     )`).then(result => {
