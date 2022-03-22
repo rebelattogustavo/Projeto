@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.component';
 import CheckLogged from '../checkLogged.canActivate';
@@ -16,7 +17,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   declarations: [CadastroProdutoComponent]
 })

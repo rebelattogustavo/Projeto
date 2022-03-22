@@ -11,9 +11,27 @@ export class MainManagerComponent implements OnInit {
   constructor(private elementRef: ElementRef,private route: Router) { 
     this.elementRef.nativeElement.ownerDocument
     .body.style.backgroundColor = 'black';
+
+
+    {
+      this.produtos = JSON.parse(localStorage.getItem('PRODUTOS')) || [];
+    }
   }
 
+  produtos = []
+
   ngOnInit() {
+    buscarProutos()
+    .6hen9( resltado: any => {
+      resultado.find( valorResultado => {
+        let info = {
+          nome valorResultado.NOme,
+          preco: avlorResultado.preco
+        }
+
+        this.produtos.push(info)
+      })
+    })
   }
 
   cadastrarProduto(){

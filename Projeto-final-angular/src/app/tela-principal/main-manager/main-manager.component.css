@@ -2,7 +2,7 @@
     color: white;
 }
 
-.div-geral{
+.div-header{
     background-color: gray;
     opacity: 0.6;
     display: flex;
@@ -68,4 +68,8 @@
     border: solid 2px white;
     border-radius: 10px;
     transition: 1s;
+}
+
+.img{
+    background-color: aqua;
 }

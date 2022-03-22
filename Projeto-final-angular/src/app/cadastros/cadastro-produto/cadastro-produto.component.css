@@ -25,12 +25,8 @@
     justify-content: flex-end;
 }
 
-#nome-tenis{
+.tenis{
     outline: none;
-    color: black;
-}
-
-#preco-tenis{
     color: black;
 }
 

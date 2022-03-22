@@ -1,4 +1,4 @@
-<div class="div-geral">
+<div class="div-header">
   <div class="div-1">
       <div class="div-cadastrar-produto" (click)="cadastrarProduto()">
         <p>Cadastrar produto</p>
@@ -8,6 +8,18 @@
       </div>
       <div class="div-perfil">
         Perfil
+      </div>
+  </div>
+</div>
+<div class="div-body">
+  <div *ngFor = "let produto of produtos";let i = index>
+      <div class="img">
+          {{result}}
+      </div>
+      <div>
+        {{produtp.mone}}
+      </div> <div>
+        {{produto.preco}}
       </div>
   </div>
 </div>

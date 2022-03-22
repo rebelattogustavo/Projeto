@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
+import { iM } from '@angular/core/src/render3';
 import { Router } from '@angular/router';
 import { ProdutoService } from 'src/app/services/produto.service';
 
@@ -24,16 +25,27 @@ export class CadastroProdutoComponent implements OnInit {
     const file = new FileReader();
     file.onload = (e) => {
       this.imgTenisURL = e.target.result;
+      this.img = this.imgTenisURL;
     };
     file.readAsDataURL(event.target.files[0]);
-    }
+    
+  }
 
-    nome='';
+  
+
+    nomeP='';
     preco='';
+    img = '';
+    qtd = '';
+    fornecedor_id = ''
     
 
     confirma(){
-      this.produto.criarProduto(this.nome, this.preco)
+      this.produto.criarProduto( this.nomeP, this.preco, this.img, this.qtd, this.fornecedor_id);
+    }
+
+    volta(){
+      this.route.navigate(['main-manager'])
     }
   
 }

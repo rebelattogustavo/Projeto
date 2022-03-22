@@ -42,9 +42,7 @@ database(`CREATE TABLE IF NOT EXISTS PRODUTO (
     VALOR double not null,
     QUANTIDADE int,
     BASE64 VARCHAR(99999),
-    ADM_ID int not null,
     FORNECEDOR_ID int not null,
-    FOREIGN KEY (ADM_ID) REFERENCES ADM (ID) on delete cascade on update cascade,
     FOREIGN KEY (FORNECEDOR_ID) REFERENCES FORNECEDOR (ID) on delete cascade on update cascade
     )`).then(result => {
     console.log('TABELA PRODUTO CRIADA COM SUCESSO');

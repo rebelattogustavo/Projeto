@@ -18,6 +18,16 @@ inserirRota("/buscar_manager", (dados, resposta) => {
     });
 });
 
+inserirRota("/buscar_produto", (dados, resposta) => {
+  console.log(dados);
+  database(`SELECT * FROM PRODUTO`)
+    .then((result) => {
+      resposta(result)
+    }).catch((erro) => {
+        resposta({resposta: erro})
+    });
+});
+
 // inserirRota('/buscar_usuario', (dados, resposta) => {
 //   console.log(dados);
 //   database('SELECT * FROM USER').then(result => {
@@ -73,21 +83,20 @@ inserirRota("/criar_produto", (dados, resposta) => {
   if (!dados.preco) {
     return resposta({ erro: "É necessário preencher o preco" });
   }
-  if (!dados.quantidade) {
+  if (!dados.qtd) {
     return resposta({ erro: "É necessário preencher o preco" });
   }
   if (!dados.img) {
     return resposta({ erro: "É necessário inserir a imagem" });
   }
 
-  database(`INSERT INTO PRODUTO (nome, password)
-                  VALUES (null, "${dados.nomeP}", "${dados.preco}", "${dados.quantidade}")`)
+  database(`INSERT INTO PRODUTO VALUES (null, "${dados.nomeP}", "${dados.preco}", "${dados.qtd}", "${dados.img}" , 1 ,1)`)
     .then((result) => {
-      console.log("USUARIO INSERIDO COM SUCESSO"),
+      console.log("PRODUTO INSERIDO COM SUCESSO"),
         resposta({ message: "Usuario inserido com sucesso!" });
     })
     .catch((erro) => {
-      console.log("ERRO AO INSERIR USUARIO"),
+      console.log("ERRO AO INSERIR PRODUTO"),
         resposta({ message: "Usuario não foi inserido :(" });
     });
 });
