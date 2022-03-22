@@ -22,7 +22,7 @@ export class MainManagerComponent implements OnInit {
 
   ngOnInit() {
     buscarProutos()
-    .6hen9( resltado: any => {
+    .then( resltado: any => {
       resultado.find( valorResultado => {
         let info = {
           nome valorResultado.NOme,
