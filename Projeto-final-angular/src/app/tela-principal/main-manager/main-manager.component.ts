@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { ProdutoService } from 'src/app/services/produto.service';
+ 
 @Component({
   selector: 'app-main-manager',
   templateUrl: './main-manager.component.html',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class MainManagerComponent implements OnInit {
 
-  constructor(private elementRef: ElementRef,private route: Router) { 
+  constructor(private elementRef: ElementRef,private route: Router, private produtoService: ProdutoService) { 
     this.elementRef.nativeElement.ownerDocument
     .body.style.backgroundColor = 'black';
 
@@ -21,14 +22,12 @@ export class MainManagerComponent implements OnInit {
   produtos = []
 
   ngOnInit() {
-    buscarProutos()
-    .then( resltado: any => {
-      resultado.find( valorResultado => {
+    this.produtoService.buscarProdutos().then(result: any => {
+      result.find( valorResultado => {
         let info = {
-          nome valorResultado.NOme,
-          preco: avlorResultado.preco
+          nome: valorResultado.nome,
+          preco: valorResultado.preco
         }
-
         this.produtos.push(info)
       })
     })
