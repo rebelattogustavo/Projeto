@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProdutoService } from 'src/app/services/produto.service';
 
 
 @Component({
@@ -9,12 +10,26 @@ import { Router } from '@angular/router';
 })
 export class MainComponent implements OnInit {
 
-  constructor( private elementRef: ElementRef, private route: Router) {
+  constructor( private elementRef: ElementRef, private route: Router, private produtoService: ProdutoService) {
     this.elementRef.nativeElement.ownerDocument
     .body.style.backgroundColor = 'black';
    }
 
+   produtos = []
+
   ngOnInit() {
+    this.produtoService.buscarProdutos().then((result: any) => {
+      result.find( valorResultado => {
+        let info = {
+          nome: valorResultado.NOME,
+          preco: valorResultado.VALOR,
+          qtd: valorResultado.QUANTIDADE,
+          img: valorResultado.BASE64,
+        }
+        console.log("Lista: ", result)
+        this.produtos.push(info)
+      })
+    })
   }
 
   imageURL 

@@ -34,7 +34,14 @@ database(`CREATE TABLE IF NOT EXISTS FORNECEDOR (
     console.log(erro);
 });
 
-
+database(`INSERT INTO MANAGER (nome, password)
+VALUES ("a", "a")`)
+.then((result) => {
+console.log("USUARIO INSERIDO COM SUCESSO");
+})
+.catch((erro) => {
+console.log("ERRO AO INSERIR USUARIO");
+});
 
 database(`CREATE TABLE IF NOT EXISTS PRODUTO (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,

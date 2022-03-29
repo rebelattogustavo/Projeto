@@ -6,7 +6,7 @@ import CheckLogged from '../checkLogged.canActivate';
 import { MainManagerComponent } from './main-manager/main-manager.component';
 import { CadastrosModule } from '../cadastros/cadastros.module';
 import { CadastroProdutoComponent } from '../cadastros/cadastro-produto/cadastro-produto.component';
-import { ProdutoService } from '../services/produto.service';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { 
@@ -23,7 +23,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     CadastrosModule,
-    ProdutoService
+    FormsModule
   ],
   declarations: [MainComponent, MainManagerComponent],
   providers: [CheckLogged]

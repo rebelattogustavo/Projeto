@@ -6,6 +6,7 @@ import {
   GoogleLoginProvider,
 } from 'angular-6-social-login-v2';
 import  { UsuarioService } from '../services/usuario.service'
+import { ManagerService } from '../services/manager.service';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
   
   
   constructor(private usuarioService: UsuarioService, private route: Router, 
-    private elementRef: ElementRef, private socialAuthService: AuthService) {
+    private elementRef: ElementRef,private managerService: ManagerService , private socialAuthService: AuthService) {
     this.elementRef.nativeElement.ownerDocument
     .body.style.backgroundColor = 'black';
    }
@@ -50,9 +51,11 @@ export class LoginComponent implements OnInit {
 
   login(){
     let conta = 0;
-    if(this.user == "" || this.pass == ""){
+    if(this.user == "" || this.pass == "" && conta == 0){
       alert("INVÁLIDO")
+      conta++;
     }else {
+      conta = 0;
       this.usuarioService.buscarUsuario()
       .then((resultado: User[]) =>{
         console.log(resultado)
@@ -62,26 +65,23 @@ export class LoginComponent implements OnInit {
             conta++;
           }
         } 
-        if(conta = 0){
-          alert("USUÁRIO INVÁLIDO")
-        }
       }
       )}
-
-    let conta2 = 0;
+    
+    conta = 0;
     if(this.user == "" || this.pass == ""){
       alert("INVÁLIDO")
     }else {
-      this.usuarioService.buscarManager()
+      this.managerService.buscarManager()
       .then((resultado: User[]) =>{
         console.log(resultado)
         for(let i=0; i < resultado.length; i++) {
-          if (this.user == resultado[i].NOME && this.pass == resultado[i].PASSWORD){
-            this.route.navigate(['/main-manager']);
-            conta2++;
-          }
+            if (this.user == resultado[i].NOME && this.pass == resultado[i].PASSWORD){
+              this.route.navigate(['/main-manager']);
+              conta++;
+            }
         }
-        if(conta2 = 0){
+        if(conta == 0){
           alert("USUÁRIO INVÁLIDO")
         }
       }

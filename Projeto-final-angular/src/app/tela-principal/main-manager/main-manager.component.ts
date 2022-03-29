@@ -22,12 +22,15 @@ export class MainManagerComponent implements OnInit {
   produtos = []
 
   ngOnInit() {
-    this.produtoService.buscarProdutos().then(result: any => {
+    this.produtoService.buscarProdutos().then((result: any) => {
       result.find( valorResultado => {
         let info = {
-          nome: valorResultado.nome,
-          preco: valorResultado.preco
+          nome: valorResultado.NOME,
+          preco: valorResultado.VALOR,
+          qtd: valorResultado.QUANTIDADE,
+          img: valorResultado.BASE64,
         }
+        console.log("Lista: ", result)
         this.produtos.push(info)
       })
     })

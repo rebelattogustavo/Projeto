@@ -70,6 +70,22 @@
     transition: 1s;
 }
 
+.div-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 50px;
+}
+
+.div-container{
+    display: flow-root;
+    justify-content: center;
+    align-items: center;
+    
+}
+
 .img{
+    width: 18vw;
     background-color: aqua;
 }

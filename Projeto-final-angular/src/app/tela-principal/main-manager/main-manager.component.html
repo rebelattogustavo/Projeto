@@ -12,14 +12,18 @@
   </div>
 </div>
 <div class="div-body">
-  <div *ngFor = "let produto of produtos";let i = index>
+  <div *ngFor = "let produto of produtos" class="div-container">
+      <div class="nome-prod">
+        <h1>{{produto.nome}}</h1>
+      </div> 
       <div class="img">
-          {{result}}
+          <img src="{{produto.img}}" alt="">
       </div>
-      <div>
-        {{produtp.mone}}
-      </div> <div>
-        {{produto.preco}}
+      <div class="preco-prod">
+        <h2>{{produto.preco}}</h2>
+      </div>
+      <div class="preco-prod">
+        {{produto.qtd}} 
       </div>
   </div>
 </div>

@@ -28,11 +28,8 @@ export class CadastroProdutoComponent implements OnInit {
       this.img = this.imgTenisURL;
     };
     file.readAsDataURL(event.target.files[0]);
-    
   }
-
   
-
     nomeP='';
     preco='';
     img = '';

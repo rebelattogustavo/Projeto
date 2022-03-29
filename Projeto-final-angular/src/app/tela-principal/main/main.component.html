@@ -1,4 +1,26 @@
-<div class="txt">
-  <h1 id="logo-txt" (click)="redimensiona()">10ZÃO TÊNIS</h1>
-</div>
-
+<body>
+  <header>
+    <div id="fundo-header">
+      <div class="txt">
+        <h1 id="logo-txt" (click)="redimensiona()">10ZÃO TÊNIS</h1>
+      </div>
+    </div>
+  </header>
+  <div class="div-body">
+    <div *ngFor = "let produto of produtos" class="div-container">
+        <div class="nome-prod">
+          <h1>{{produto.nome}}</h1>
+        </div> 
+        <div class="img">
+            <img src="{{produto.img}}" alt="">
+        </div>
+        <div class="preco-prod">
+          <h2>{{produto.preco}}</h2>
+        </div>
+        <div class="preco-prod">
+          {{produto.qtd}} 
+        </div>
+    </div>
+  </div>
+</body>
+  

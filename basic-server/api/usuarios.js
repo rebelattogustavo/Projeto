@@ -78,19 +78,22 @@ inserirRota("/criar_produto", (dados, resposta) => {
   console.log(dados);
 
   if (!dados.nomeP) {
-    return resposta({ erro: "É necessário preencher o nome" });
+    return resposta({ erro: "É necessário preencher o nome!" });
   }
   if (!dados.preco) {
-    return resposta({ erro: "É necessário preencher o preco" });
+    return resposta({ erro: "É necessário preencher o preço!" });
   }
   if (!dados.qtd) {
-    return resposta({ erro: "É necessário preencher o preco" });
+    return resposta({ erro: "É necessário preencher a quantidade!" });
   }
   if (!dados.img) {
-    return resposta({ erro: "É necessário inserir a imagem" });
+    return resposta({ erro: "É necessário inserir a imagem!" });
+  }
+  if (!dados.fornecedor_id) {
+    return resposta({ erro: "É necessário inserir o id do fornecedor!" });
   }
 
-  database(`INSERT INTO PRODUTO VALUES (null, "${dados.nomeP}", "${dados.preco}", "${dados.qtd}", "${dados.img}" , 1 ,1)`)
+  database(`INSERT INTO PRODUTO VALUES (null, "${dados.nomeP}", "${dados.preco}", "${dados.qtd}", "${dados.img}" , "${dados.fornecedor_id}")`)
     .then((result) => {
       console.log("PRODUTO INSERIDO COM SUCESSO"),
         resposta({ message: "Usuario inserido com sucesso!" });
