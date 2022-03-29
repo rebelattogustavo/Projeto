@@ -48,7 +48,7 @@ database(`CREATE TABLE IF NOT EXISTS PRODUTO (
     NOME varchar(45) not null,
     VALOR double not null,
     QUANTIDADE int,
-    BASE64 VARCHAR(99999),
+    BASE64 VARCHAR(9999999),
     FORNECEDOR_ID int not null,
     FOREIGN KEY (FORNECEDOR_ID) REFERENCES FORNECEDOR (ID) on delete cascade on update cascade
     )`).then(result => {
