@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    width: 98.5vw;
     height: 10vh;
 }
 
@@ -82,10 +82,13 @@
     display: flow-root;
     justify-content: center;
     align-items: center;
-    
+    text-align: center;
 }
 
 .img{
     width: 18vw;
     background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
