@@ -53,7 +53,10 @@ body{
   
 }
 
-.img{
+.div-img{
   width: 18vw;
   background-color: aqua;
+}
+.img-tenis{
+  width: 100%;
 }

@@ -61,10 +61,11 @@ export class LoginComponent implements OnInit {
         console.log(resultado)
         for(let i=0; i < resultado.length; i++) {
           if (this.user == resultado[i].NOME && this.pass == resultado[i].PASSWORD){
+            localStorage.setItem("LogadoUser",'1')
             this.route.navigate(['/main']);
             conta++;
           }
-        } 
+        }
       }
       )}
     
@@ -77,6 +78,7 @@ export class LoginComponent implements OnInit {
         console.log(resultado)
         for(let i=0; i < resultado.length; i++) {
             if (this.user == resultado[i].NOME && this.pass == resultado[i].PASSWORD){
+              localStorage.setItem("LogadoManager", '2')
               this.route.navigate(['/main-manager']);
               conta++;
             }

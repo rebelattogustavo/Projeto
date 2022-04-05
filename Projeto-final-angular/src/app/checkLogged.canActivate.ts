@@ -1,31 +1,35 @@
 import { Injectable } from "@angular/core";
+
+
 import {
     ActivatedRouteSnapshot,
     CanActivate,
     Router,
     RouterStateSnapshot
-} from "@angular/router"
+} from "@angular/router";
 import { Observable } from "rxjs";
+import { UsuarioService } from "./services/usuario.service"
 
 @Injectable()
-class CheckLogged implements CanActivate{
-    constructor(private router: Router){}
+export class CheckLogged implements CanActivate {
+    constructor(
+        private router: Router,
+        private usuarios: UsuarioService
+    ) { }
 
     canActivate(
-        route: ActivatedRouteSnapshot, 
-        state: RouterStateSnapshot
-        ): Observable<boolean> | Promise<boolean> | boolean {
-        console.log('DENTRO')
+        route: ActivatedRouteSnapshot,
+        state: RouterStateSnapshot,
+    ): Observable<boolean> | Promise<boolean> | boolean {
 
-        let user = localStorage.getItem('buscarUsuario')
-        
-        if(user){
+        let USER = localStorage.getItem("LogadoUser")
+        let USERADM = localStorage.getItem("LogadoManager")
+
+        if (USER || USERADM) {
             return true;
-        } else{
-            this.router.navigate(['/']);
+        } else {
+            this.router.navigate(['/'])
             return false;
         }
     }
 }
-
-export default CheckLogged

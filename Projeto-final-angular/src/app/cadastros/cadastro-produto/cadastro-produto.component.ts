@@ -39,6 +39,9 @@ export class CadastroProdutoComponent implements OnInit {
 
     confirma(){
       this.produto.criarProduto( this.nomeP, this.preco, this.img, this.qtd, this.fornecedor_id);
+      setTimeout(() => {
+        this.route.navigate(['main-manager'])
+      }, 100);
     }
 
     volta(){

@@ -16,7 +16,7 @@ import { MainComponent } from './tela-principal/main/main.component';
 import { MainManagerComponent } from './tela-principal/main-manager/main-manager.component';
 import { CadastrosModule } from './cadastros/cadastros.module';
 import { CadastroProdutoComponent } from './cadastros/cadastro-produto/cadastro-produto.component';
-import CheckLogged from './checkLogged.canActivate';
+import { CheckLogged } from './checkLogged.canActivate';
 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
@@ -50,14 +50,17 @@ export function getAuthServiceConfigs() {
       {
         path: 'main',
         component: MainComponent,
+        canActivate: [CheckLogged],
       },
       {
         path: 'main-manager',
         component: MainManagerComponent,
+        canActivate: [CheckLogged],
       },
       { 
         path: 'cadastro-produtos', 
         component: CadastroProdutoComponent,
+        canActivate: [CheckLogged],
       },
     ]),
     SocialLoginModule,

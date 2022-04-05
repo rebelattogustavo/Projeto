@@ -9,21 +9,25 @@
       <div class="div-perfil">
         Perfil
       </div>
+      <div (onclick)="logOut()" class="div-logout">
+        Logout
+      </div>
   </div>
 </div>
 <div class="div-body">
-  <div *ngFor = "let produto of produtos" class="div-container">
+  <div *ngFor = "let produto of produtos;let i = index" class="div-container">
       <div class="nome-prod">
         <h1>{{produto.nome}}</h1>
       </div> 
-      <div class="img">
-          <img src="{{produto.img}}" alt="">
+      <div class="div-img">
+          <img src="{{produto.img}}" alt="" class="img-tenis">
       </div>
-      <div class="preco-prod">
+      <div class="div-preco">
         <h2>R${{produto.preco}}</h2>
       </div>
-      <div class="preco-prod">
+      <div class="div-estoq">
         <p>Em estoque: {{produto.qtd}}</p> 
+        <button (click)="remover(produto.id)" class="remover-button">Remover</button>
       </div>
   </div>
 </div>

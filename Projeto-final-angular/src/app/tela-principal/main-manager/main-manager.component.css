@@ -70,6 +70,25 @@
     transition: 1s;
 }
 
+.div-logout{
+    display: inline-block;
+    justify-content: left;
+    align-items: flex-start;
+    margin: 0 5vw 0 0;
+    width: 140px;
+    height: 45px;
+    text-align: center;
+    border-radius: 10px;
+    border: solid 2px transparent;
+}
+
+.div-logout:hover{
+    cursor: pointer;
+    border: solid 2px white;
+    border-radius: 10px;
+    transition: 1s;
+}
+
 .div-body{
     display: flex;
     justify-content: center;
@@ -85,10 +104,63 @@
     text-align: center;
 }
 
-.img{
+.div-img{
     width: 18vw;
     background-color: aqua;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.img-tenis{
+    width: 100%;
+}
+
+.div-estoq{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 15px;
+}
+
+.remover-button{
+    border: 2px solid currentColor;
+    border-radius: 50px;
+    color: rgb(119, 113, 122);
+    font-family: roboto;
+    font-size: 14px;
+    font-weight: 50;
+    overflow: hidden;
+    padding: 5px 15px;
+    text-decoration: none;
+    transition: 0.2s transform ease-in-out;
+    will-change: transform;
+}
+
+.remover-button::after {
+    background-color: rgb(255, 0, 0);
+    border-radius: 4px;
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-100%, 0) rotate(10deg);
+    transform-origin: top left;
+    transition: 0.2s transform ease-out;
+    will-change: transform;
+    z-index: -1;
+}
+.remover-button:hover::after {
+    transform: translate(0, 0);
+}
+.remover-button:hover {
+    border: 2px solid transparent;
+    color: #ffffff;
+    transform: scale(1.05);
+    will-change: transform;
+    cursor: pointer;
 }

@@ -41,4 +41,22 @@ export class ProdutoService {
     });
   }
 
+  removerProduto(id){
+    console.log(id)
+    return new Promise((resolvido, rejeitado) =>{
+
+      fetch('/api/remover_produto', {
+        method: 'POST',
+        body: JSON.stringify(
+          {
+            id
+          }
+        ),
+        headers: {'Content-Type': 'application/json'}
+      }).then(resultado => resultado.json())
+      .then(result => resolvido(result))
+      .catch(rejeitado)
+    });
+  }
+
 }

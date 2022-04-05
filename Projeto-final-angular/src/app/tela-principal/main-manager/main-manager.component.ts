@@ -13,31 +13,41 @@ export class MainManagerComponent implements OnInit {
     this.elementRef.nativeElement.ownerDocument
     .body.style.backgroundColor = 'black';
 
-
-    {
-      this.produtos = JSON.parse(localStorage.getItem('PRODUTOS')) || [];
-    }
   }
-
   produtos = []
 
   ngOnInit() {
     this.produtoService.buscarProdutos().then((result: any) => {
       result.find( valorResultado => {
         let info = {
+          id: valorResultado.ID,
           nome: valorResultado.NOME,
           preco: valorResultado.VALOR,
           qtd: valorResultado.QUANTIDADE,
           img: valorResultado.BASE64,
         }
-        console.log("Lista: ", result)
+        
         this.produtos.push(info)
       })
+      console.log("Lista: ", result)
     })
   }
 
   cadastrarProduto(){
     this.route.navigate(['/cadastro-produtos'])
   }
+  
+  remover(id){
+    this.produtoService.removerProduto(id).then(result => {
+      this.route.navigate(['/main-manager'])
+      console.log(result)
+    }).catch(erro => {
+      console.log(erro)
+    })
+    this.refreshPage();
+  }
 
+  refreshPage() {
+    window.location.reload();
+   }
 }
