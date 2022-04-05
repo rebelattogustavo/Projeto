@@ -36,6 +36,12 @@ export class MainManagerComponent implements OnInit {
   cadastrarProduto(){
     this.route.navigate(['/cadastro-produtos'])
   }
+
+  logOut(){
+    localStorage.removeItem("LogadoUser");
+    localStorage.removeItem("LogadoManager");
+    this.route.navigate([''])
+  }
   
   remover(id){
     this.produtoService.removerProduto(id).then(result => {
@@ -44,10 +50,7 @@ export class MainManagerComponent implements OnInit {
     }).catch(erro => {
       console.log(erro)
     })
-    this.refreshPage();
-  }
-
-  refreshPage() {
     window.location.reload();
-   }
+
+  }
 }

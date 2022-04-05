@@ -2,5 +2,4 @@ require('./teste');
 require('./usuarios');
 require('./criacao_database');
 require('./produto');
-
-// require('./inserir_dados');
+require('./manager');
