@@ -51,6 +51,5 @@ export class MainManagerComponent implements OnInit {
       console.log(erro)
     })
     window.location.reload();
-
   }
 }
