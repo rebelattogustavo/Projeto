@@ -20,6 +20,18 @@ inserirRota("/remover_produto", (dados, resposta) => {
       });
   });
 
+inserirRota("/selecionar_produto", (dados, resposta) => {
+    console.log("Remover: ",dados);
+    database(`SELECT FROM PRODUTO WHERE ID = ${dados.id}`)
+      .then((result) => {
+        console.log("SELECIONADO")
+        resposta(result)
+      }).catch((erro) => {
+        console.log(erro)
+          resposta({resposta: erro})
+      });
+  });
+
   inserirRota("/criar_produto", (dados, resposta) => {
     console.log(dados);
   

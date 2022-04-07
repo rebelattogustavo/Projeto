@@ -51,6 +51,7 @@ body{
   justify-content: center;
   align-items: center;
   
+  text-align: center;
 }
 
 .div-img{
@@ -59,4 +60,52 @@ body{
 }
 .img-tenis{
   width: 100%;
+}
+
+.comprar-button{
+  border: 2px solid currentColor;
+  border-radius: 50px;
+  color: rgb(119, 113, 122);
+  font-family: roboto;
+  font-size: 14px;
+  font-weight: 50;
+  overflow: hidden;
+  padding: 5px 15px;
+  text-decoration: none;
+  transition: 0.2s transform ease-in-out;
+  will-change: transform;
+}
+
+.div-estoq{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 15px;
+}
+
+.comprar-button::after {
+  background-color: rgb(48, 255, 7);
+  border-radius: 4px;
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-100%, 0) rotate(10deg);
+  transform-origin: top left;
+  transition: 0.2s transform ease-out;
+  will-change: transform;
+  z-index: -1;
+}
+.comprar-button:hover::after {
+  transform: translate(0, 0);
+}
+.comprar-button:hover {
+  border: 2px solid transparent;
+  color: black;
+  transform: scale(1.05);
+  will-change: transform;
+  cursor: pointer;
 }

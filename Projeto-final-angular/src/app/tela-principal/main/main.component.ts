@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProdutoService } from 'src/app/services/produto.service';
 
@@ -15,12 +15,14 @@ export class MainComponent implements OnInit {
     .body.style.backgroundColor = 'black';
    }
 
-   produtos = []
+   produtos = [];
+   @Input() carrinho = [];
 
   ngOnInit() {
     this.produtoService.buscarProdutos().then((result: any) => {
       result.find( valorResultado => {
         let info = {
+          id: valorResultado.id,
           nome: valorResultado.NOME,
           preco: valorResultado.VALOR,
           qtd: valorResultado.QUANTIDADE,
@@ -47,6 +49,10 @@ export class MainComponent implements OnInit {
 
   redimensiona(){
     this.route.navigate(['/main'])
+  }
+
+  comprar(id){
+
   }
 
 }

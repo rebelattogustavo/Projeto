@@ -17,9 +17,9 @@
         <div class="preco-prod">
           <h2>{{produto.preco}}</h2>
         </div>
-        <div class="preco-prod">
-          {{produto.qtd}} 
-          <button>Remover</button>
+        <div class="div-estoq">
+          <p>Disponível: {{produto.qtd}}</p> 
+          <button (click)="comprar(produto.id)" class="comprar-button">Comprar</button>
         </div>
     </div>
   </div>
