@@ -71,4 +71,20 @@ export class ProdutoService {
     });
   }
 
+  comprar(ID_PESSOA , ID_PRODUTO){
+    return new Promise((resolvido, rejeitado) => {
+      fetch('/api/comprar_produto', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(
+          {ID_PESSOA, ID_PRODUTO}
+        )
+      }).then(resultado => resultado.json())
+      .then(result => resolvido(result))
+      .catch(rejeitado);
+    })
+  }
+
 }

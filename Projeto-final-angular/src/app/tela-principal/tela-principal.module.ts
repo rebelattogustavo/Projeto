@@ -7,6 +7,7 @@ import { MainManagerComponent } from './main-manager/main-manager.component';
 import { CadastrosModule } from '../cadastros/cadastros.module';
 import { CadastroProdutoComponent } from '../cadastros/cadastro-produto/cadastro-produto.component';
 import { FormsModule } from '@angular/forms';
+import { CarrinhoComponent } from './carrinho/carrinho.component';
 
 const routes: Routes = [
   { 
@@ -16,6 +17,7 @@ const routes: Routes = [
       { path: 'main', component: MainComponent},
       { path: 'main-manager', component: MainManagerComponent},
       { path: 'cadastro-produtos', component: CadastroProdutoComponent},
+      { path: 'carrinho', component: CarrinhoComponent},
   ]}
 ];
 
@@ -25,7 +27,7 @@ const routes: Routes = [
     CadastrosModule,
     FormsModule
   ],
-  declarations: [MainComponent, MainManagerComponent],
+  declarations: [MainComponent, MainManagerComponent, CarrinhoComponent],
   providers: [CheckLogged]
 })
 export class TelaPrincipalModule { }

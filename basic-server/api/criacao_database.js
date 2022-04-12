@@ -34,14 +34,14 @@ database(`CREATE TABLE IF NOT EXISTS FORNECEDOR (
     console.log(erro);
 });
 
-database(`INSERT INTO MANAGER (nome, password)
-VALUES ("a", "a")`)
-.then((result) => {
-console.log("USUARIO INSERIDO COM SUCESSO");
-})
-.catch((erro) => {
-console.log("ERRO AO INSERIR USUARIO");
-});
+// database(`INSERT INTO MANAGER (nome, password)
+// VALUES ("a", "a")`)
+// .then((result) => {
+// console.log("USUARIO INSERIDO COM SUCESSO");
+// })
+// .catch((erro) => {
+// console.log("ERRO AO INSERIR USUARIO");
+// });
 
 database(`CREATE TABLE IF NOT EXISTS PRODUTO (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -55,6 +55,19 @@ database(`CREATE TABLE IF NOT EXISTS PRODUTO (
     console.log('TABELA PRODUTO CRIADA COM SUCESSO');
 }).catch(erro => {
     console.log('TABELA PRODUTO COM ERRO NA CRIAÇÃO');
+    console.log(erro);
+});
+
+database(`CREATE TABLE IF NOT EXISTS CARRINHO (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    ID_PESSOA int NOT NULL,
+    ID_PRODUTO int NOT NULL,
+    FOREIGN KEY (ID_PESSOA) REFERENCES USUARIO (ID) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (ID_PRODUTO) REFERENCES PRODUTO (ID) ON DELETE CASCADE ON UPDATE CASCADE
+)`).then(result => {
+    console.log('TABELA CARRINHO CRIADA COM SUCESSO');
+}).catch(erro => {
+    console.log('TABELA CARRINHO COM ERRO NA CRIAÇÃO');
     console.log(erro);
 });
 

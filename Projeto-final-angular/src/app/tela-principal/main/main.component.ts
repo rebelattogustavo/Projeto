@@ -1,6 +1,7 @@
-import { Component, ElementRef, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProdutoService } from 'src/app/services/produto.service';
+import { CarrinhoService } from 'src/app/services/carrinho.service';
 
 
 @Component({
@@ -10,19 +11,20 @@ import { ProdutoService } from 'src/app/services/produto.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor( private elementRef: ElementRef, private route: Router, private produtoService: ProdutoService) {
+  constructor( private elementRef: ElementRef, private route: Router, private produtoService: ProdutoService, private carrinhoService: CarrinhoService) {
     this.elementRef.nativeElement.ownerDocument
     .body.style.backgroundColor = 'black';
    }
 
    produtos = [];
-   @Input() carrinho = [];
-
+   @Output() carrinho = [];
+   
+   id;
   ngOnInit() {
     this.produtoService.buscarProdutos().then((result: any) => {
       result.find( valorResultado => {
         let info = {
-          id: valorResultado.id,
+          id: valorResultado.ID,
           nome: valorResultado.NOME,
           preco: valorResultado.VALOR,
           qtd: valorResultado.QUANTIDADE,
@@ -33,7 +35,6 @@ export class MainComponent implements OnInit {
       })
     })
   }
-
   imageURL 
   teste
   openModal
@@ -51,8 +52,14 @@ export class MainComponent implements OnInit {
     this.route.navigate(['/main'])
   }
 
-  comprar(id){
-
+  comprar() {
+    if (localStorage.getItem("ID") == null) {
+      alert("Você não está logado!")
+      this.route.navigate(["/login"]);
+    } else {
+      this.produtoService.comprar(localStorage.getItem("ID"), this.id);
+      this.route.navigate(["/carrinho"]);
+    }
+    }
+  
   }
-
-}

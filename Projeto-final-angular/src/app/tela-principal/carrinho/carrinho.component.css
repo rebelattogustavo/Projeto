@@ -1,0 +1,34 @@
+.div-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 50px;
+}
+
+.div-container{
+    display: flow-root;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.div-img{
+    width: 18vw;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-tenis{
+    width: 100%;
+}
+
+.div-estoq{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 15px;
+}

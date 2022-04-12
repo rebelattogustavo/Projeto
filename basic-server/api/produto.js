@@ -21,8 +21,8 @@ inserirRota("/remover_produto", (dados, resposta) => {
   });
 
 inserirRota("/selecionar_produto", (dados, resposta) => {
-    console.log("Remover: ",dados);
-    database(`SELECT FROM PRODUTO WHERE ID = ${dados.id}`)
+    console.log("Selecionar: ",dados);
+    database(`SELECT * FROM PRODUTO WHERE ID = ${dados.id}`)
       .then((result) => {
         console.log("SELECIONADO")
         resposta(result)
@@ -59,5 +59,19 @@ inserirRota("/selecionar_produto", (dados, resposta) => {
       .catch((erro) => {
         console.log("ERRO AO INSERIR PRODUTO"),
           resposta({ message: "Usuario não foi inserido :(" });
+      });
+  });
+
+  inserirRota("/comprar_produto", function (dados, resposta) {
+    console.log("Dados comprar: ", dados);
+    database(
+      `INSERT INTO CARRINHO VALUES(null, "${dados.ID_PESSOA}", "${dados.ID_PRODUTO}")`
+    )
+      .then((result) => {
+        resposta(result);
+      })
+      .catch((erro) => {
+        console.log("Erro");
+        resposta({ erro });
       });
   });

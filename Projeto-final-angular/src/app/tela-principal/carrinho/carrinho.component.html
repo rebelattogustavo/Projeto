@@ -1,0 +1,18 @@
+<div class="div-body">
+  <div *ngFor = "let carrinho of listaCarrinho" class="div-container">
+      <div class="nome-prod">
+        <h1>{{carrinho.nome}}</h1>
+      </div> 
+      <div class="div-img">
+          <img src="{{carrinho.img}}" alt="" class="img-tenis">
+      </div>
+      <div class="preco-prod">
+        <h2>{{carrinho.preco}}</h2>
+      </div>
+      <div class="div-estoq">
+        <p>Disponível: {{carrinho.qtd}}</p> 
+      </div>
+  </div>
+</div>
+<div>
+</div>

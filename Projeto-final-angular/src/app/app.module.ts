@@ -17,6 +17,7 @@ import { MainManagerComponent } from './tela-principal/main-manager/main-manager
 import { CadastrosModule } from './cadastros/cadastros.module';
 import { CadastroProdutoComponent } from './cadastros/cadastro-produto/cadastro-produto.component';
 import { CheckLogged } from './checkLogged.canActivate';
+import { CarrinhoComponent } from './tela-principal/carrinho/carrinho.component';
 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
@@ -60,6 +61,11 @@ export function getAuthServiceConfigs() {
       { 
         path: 'cadastro-produtos', 
         component: CadastroProdutoComponent,
+        canActivate: [CheckLogged],
+      },
+      { 
+        path: 'carrinho', 
+        component: CarrinhoComponent,
         canActivate: [CheckLogged],
       },
     ]),

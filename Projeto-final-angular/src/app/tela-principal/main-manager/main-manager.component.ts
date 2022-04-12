@@ -45,7 +45,6 @@ export class MainManagerComponent implements OnInit {
   
   remover(id){
     this.produtoService.removerProduto(id).then(result => {
-      this.route.navigate(['/main-manager'])
       console.log(result)
     }).catch(erro => {
       console.log(erro)

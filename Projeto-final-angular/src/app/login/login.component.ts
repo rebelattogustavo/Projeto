@@ -7,6 +7,7 @@ import {
 } from 'angular-6-social-login-v2';
 import  { UsuarioService } from '../services/usuario.service'
 import { ManagerService } from '../services/manager.service';
+import * as internal from 'assert';
 
 
 @Component({
@@ -62,6 +63,7 @@ export class LoginComponent implements OnInit {
         for(let i=0; i < resultado.length; i++) {
           if (this.user == resultado[i].NOME && this.pass == resultado[i].PASSWORD){
             localStorage.setItem("LogadoUser",'1')
+            localStorage.setItem("ID", `${resultado[i].ID}`)
             this.route.navigate(['/main']);
             conta++;
           }
@@ -79,6 +81,7 @@ export class LoginComponent implements OnInit {
         for(let i=0; i < resultado.length; i++) {
             if (this.user == resultado[i].NOME && this.pass == resultado[i].PASSWORD){
               localStorage.setItem("LogadoManager", '2')
+              localStorage.setItem("ID", `${resultado[i].ID}`)
               this.route.navigate(['/main-manager']);
               conta++;
             }
@@ -91,39 +94,6 @@ export class LoginComponent implements OnInit {
   
     }
 
-  //   for(let i of this.listaUsuarios){
-  //     if(i.username == this.user && i.password == this.pass){
-  //       localStorage.setItem('USER: ', this.user);
-  //       localStorage.setItem('PASS: ', this.pass);
-  //       conta++;
-  //     }
-  //   }
-  //   if(conta==0){
-  //     alert('Usuário inválido!')
-  //   }
-  
-
-//   login(){
-//         fetch('/api/buscar_usuario',
-//       {
-//           method: 'POST',
-//           body: JSON.stringify(
-//               {
-//                   nickname: this.user, password: this.pass
-//               }
-//           ),
-//           headers: {
-//               'Content-Type': 'application/json'
-//           }
-//       }
-//   ).then(function (result){
-//       return result.json();
-//   }).then(function (dados){
-//       console.log(dados);
-//   }).catch(function(erro){
-//     console.log(erro);
-//   })
-//   }
 
   cadastro(){
     this.route.navigate(['/cadastro/'])
@@ -133,4 +103,5 @@ export class LoginComponent implements OnInit {
 interface User {
   NOME: string;
   PASSWORD: string;
+  ID: number;
 }
