@@ -12,21 +12,21 @@
     </div>
   </header>
   <div class="div-body">
-    <div *ngFor="let produto of produtos; let i = index" class="div-container">
+    <div class="div-container">
         <div class="nome-prod">
-          <h1>{{produto.nome}}</h1>
+          <h1>{{nome}}</h1>
         </div> 
         <div class="div-img">
-            <img src="{{produto.img}}" alt="" class="img-tenis">
+            <img src="{{img}}" alt="" class="img-tenis">
         </div>
         <div class="preco-prod">
-          <h2>{{produto.preco}}</h2>
+          <h2>{{preco}}</h2>
         </div>
         <div class="div-estoq">
-          <p>Disponível: {{produto.qtd}}</p> 
-          <button (click)="comprar(i + 1)" class="comprar-button">Comprar</button>
+          <p>Disponível: {{qtd}}</p> 
+          <button (click)="addCarrinho()" class="add-button">Adicionar ao carrinho</button>
         </div>
-      </div>
     </div>
+  </div>
   </body>
   

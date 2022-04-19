@@ -22,7 +22,7 @@ export class CheckLogged implements CanActivate {
         state: RouterStateSnapshot,
     ): Observable<boolean> | Promise<boolean> | boolean {
 
-        let USER = localStorage.getItem("LogadoUser")
+        let USER = localStorage.getItem("ID")
         let USERADM = localStorage.getItem("LogadoManager")
 
         if (USER || USERADM) {

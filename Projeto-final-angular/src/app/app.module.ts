@@ -18,6 +18,7 @@ import { CadastrosModule } from './cadastros/cadastros.module';
 import { CadastroProdutoComponent } from './cadastros/cadastro-produto/cadastro-produto.component';
 import { CheckLogged } from './checkLogged.canActivate';
 import { CarrinhoComponent } from './tela-principal/carrinho/carrinho.component';
+import { CompraComponent } from './tela-principal/compra/compra.component';
 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
@@ -66,6 +67,11 @@ export function getAuthServiceConfigs() {
       { 
         path: 'carrinho', 
         component: CarrinhoComponent,
+        canActivate: [CheckLogged],
+      },
+      { 
+        path: 'compra/:id_produto', 
+        component: CompraComponent,
         canActivate: [CheckLogged],
       },
     ]),

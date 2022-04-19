@@ -17,11 +17,13 @@ inserirRota("/buscar_manager", (dados, resposta) => {
       });
   });
 
-database(`INSERT INTO MANAGER (nome, password)
-VALUES ("a", "a")`)
-.then((result) => {
-console.log("USUARIO INSERIDO COM SUCESSO");
-})
-.catch((erro) => {
-console.log("ERRO AO INSERIR USUARIO");
-});
+ setTimeout(() => {
+  database(`INSERT INTO MANAGER (nome, password)
+  VALUES ("a", "a")`)
+  .then((result) => {
+  console.log("USUARIO INSERIDO COM SUCESSO");
+  })
+  .catch((erro) => {
+  console.log("ERRO AO INSERIR USUARIO");
+  })
+}, 3000);;

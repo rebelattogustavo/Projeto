@@ -7,71 +7,71 @@ export class ProdutoService {
 
   constructor() { }
 
-  criarProduto(nomeP, preco, img, qtd, fornecedor_id){
+  criarProduto(nomeP, preco, img, qtd, fornecedor_id) {
     fetch('/api/criar_produto',
-    {
+      {
         method: 'POST',
         body: JSON.stringify(
-            {
-                nomeP, preco, img, qtd, fornecedor_id
-            }
+          {
+            nomeP, preco, img, qtd, fornecedor_id
+          }
         ),
         headers: {
-            'Content-Type': 'application/json'
+          'Content-Type': 'application/json'
         }
-    }
-).then(function (result){
-    return result.json();
-}).then(function (dados){
-    console.log(dados);
-}).catch(function(erro){
-  console.log(erro);
-})
+      }
+    ).then(function (result) {
+      return result.json();
+    }).then(function (dados) {
+      console.log(dados);
+    }).catch(function (erro) {
+      console.log(erro);
+    })
   }
 
-  buscarProdutos(){
-    return new Promise((resolvido, rejeitado) =>{
+  buscarProdutos() {
+    return new Promise((resolvido, rejeitado) => {
 
       fetch('/api/buscar_produto', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'}
+        headers: { 'Content-Type': 'application/json' }
       }).then(resultado => resultado.json())
-      .then(result => resolvido(result))
-      .catch(rejeitado)
+        .then(result => resolvido(result))
+        .catch(rejeitado)
     });
   }
 
-  removerProduto(id){
-    return new Promise((resolvido, rejeitado) =>{
+  removerProduto(id) {
+    return new Promise((resolvido, rejeitado) => {
 
       fetch('/api/remover_produto', {
         method: 'POST',
         body: JSON.stringify(
-          {  id  }
+          { id }
         ),
-        headers: {'Content-Type': 'application/json'}
+        headers: { 'Content-Type': 'application/json' }
       }).then(resultado => resultado.json())
-      .then(result => resolvido(result))
-      .catch(rejeitado)
+        .then(result => resolvido(result))
+        .catch(rejeitado)
     });
   }
 
-  selecionarProduto(id){
-    return new Promise((resolvido, rejeitado) =>{
+  selecionarProduto(id) {
+    return new Promise((resolvido, rejeitado) => {
 
       fetch('/api/selecionar_produto', {
         method: 'POST',
         body: JSON.stringify(
-          {  id  }
+          { id }
         ),
-        headers: {'Content-Type': 'application/json'}
+        headers: { 'Content-Type': 'application/json' }
       }).then(resultado => resultado.json())
-      .then(result => resolvido(result))
-      .catch(rejeitado)
+        .then(result => resolvido(result))
+        .catch(rejeitado)
     });
   }
 
-  comprar(ID_PESSOA , ID_PRODUTO){
+  comprar(ID_PESSOA, ID_PRODUTO) {
     return new Promise((resolvido, rejeitado) => {
       fetch('/api/comprar_produto', {
         method: 'POST',
@@ -79,11 +79,11 @@ export class ProdutoService {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(
-          {ID_PESSOA, ID_PRODUTO}
+          { ID_PESSOA, ID_PRODUTO }
         )
       }).then(resultado => resultado.json())
-      .then(result => resolvido(result))
-      .catch(rejeitado);
+        .then(result => resolvido(result))
+        .catch(rejeitado);
     })
   }
 

@@ -1,5 +1,4 @@
 inserirRota("/buscar_produto", (dados, resposta) => {
-    console.log(dados);
     database(`SELECT * FROM PRODUTO`)
       .then((result) => {
         resposta(result)
@@ -51,7 +50,7 @@ inserirRota("/selecionar_produto", (dados, resposta) => {
       return resposta({ erro: "É necessário inserir o id do fornecedor!" });
     }
   
-    database(`INSERT INTO PRODUTO VALUES (null, "${dados.nomeP}", "${dados.preco}", "${dados.qtd}", "${dados.img}" , "${dados.fornecedor_id}")`)
+    database(`INSERT INTO PRODUTO VALUES (null, "${dados.nomeP}", ${dados.preco}, ${dados.qtd}, "${dados.img}" , ${dados.fornecedor_id})`)
       .then((result) => {
         console.log("PRODUTO INSERIDO COM SUCESSO"),
           resposta({ message: "Usuario inserido com sucesso!" });
@@ -65,7 +64,7 @@ inserirRota("/selecionar_produto", (dados, resposta) => {
   inserirRota("/comprar_produto", function (dados, resposta) {
     console.log("Dados comprar: ", dados);
     database(
-      `INSERT INTO CARRINHO VALUES(null, "${dados.ID_PESSOA}", "${dados.ID_PRODUTO}")`
+      `INSERT INTO CARRINHO VALUES(null, ${dados.ID_PESSOA}, ${dados.ID_PRODUTO})`
     )
       .then((result) => {
         resposta(result);

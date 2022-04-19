@@ -38,8 +38,6 @@ inserirRota("/buscar_produto", (dados, resposta) => {
 // });
 
 inserirRota("/login", (dados, resposta) => {
-  console.log(dados);
-
   database(`SELECT * FROM USUARIO WHERE NOME = "${dados.nome}" AND
             PASSWORD = "${dados.password}"`)
     .then((result) => {
@@ -53,8 +51,6 @@ inserirRota("/login", (dados, resposta) => {
 });
 
 inserirRota("/criar_usuario", (dados, resposta) => {
-  console.log(dados);
-
   if (!dados.nome) {
     return resposta({ erro: "É necessário preencher o nome" });
   }
@@ -75,8 +71,6 @@ inserirRota("/criar_usuario", (dados, resposta) => {
 });
 
 inserirRota("/criar_produto", (dados, resposta) => {
-  console.log(dados);
-
   if (!dados.nomeP) {
     return resposta({ erro: "É necessário preencher o nome!" });
   }

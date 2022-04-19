@@ -17,7 +17,6 @@ export class MainComponent implements OnInit {
    }
 
    produtos = [];
-   @Output() carrinho = [];
    
    id;
   ngOnInit() {
@@ -52,14 +51,12 @@ export class MainComponent implements OnInit {
     this.route.navigate(['/main'])
   }
 
-  comprar() {
-    if (localStorage.getItem("ID") == null) {
-      alert("Você não está logado!")
-      this.route.navigate(["/login"]);
-    } else {
-      this.produtoService.comprar(localStorage.getItem("ID"), this.id);
-      this.route.navigate(["/carrinho"]);
+  comprar(index) {
+      this.route.navigate(["/compra", index]);
     }
+
+    carrinho(){
+      this.route.navigate(["./carrinho"])
     }
   
   }

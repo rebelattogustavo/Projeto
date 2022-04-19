@@ -1,10 +1,8 @@
 inserirRota("/listar_carrinho", function (dados, resposta) {
-    console.log(dados)
-    database(
-      `(SELECT * FROM CARRINHO)`
-    )
+    database(`SELECT * FROM CARRINHO`)
       .then((result) => {
         resposta(result);
+        console.log("Lista carrinho: ", dados)
       })
       .catch((erro) => {
         console.log("Erro"); 

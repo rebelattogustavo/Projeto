@@ -18,6 +18,9 @@ body{
 }
 
 .txt{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 20px;
@@ -26,6 +29,10 @@ body{
 
 #logo-txt{
   text-align: center;
+}
+
+.icone-carrinho{
+  cursor: pointer;
 }
 
 #fundo-header{

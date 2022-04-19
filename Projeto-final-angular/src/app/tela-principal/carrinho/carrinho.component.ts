@@ -22,13 +22,15 @@ export class CarrinhoComponent implements OnInit {
         if (result.ID_PESSOA == localStorage.getItem("ID")) {
           this.produtoService.buscarProdutos().then((resultado: any) => {
             resultado.find((produto) => {
-              if (produto.id == result.ID_PRODUTO) {
-                let product = {
-                  nome: produto.nome,
-                  valor: produto.valor, 
-                  imagem: produto.imagem
+              if (produto.ID == result.ID_PRODUTO) {
+                let prod = {
+                  nome: produto.NOME,
+                  preco: produto.VALOR,
+                  img: produto.BASE64,
+                  qtd: produto.QUANTIDADE
                 }
-                this.listaCarrinho.push(product);
+                this.listaCarrinho.push(prod);
+                console.log("Lista carrinho", this.listaCarrinho)
               }
             });
           });
