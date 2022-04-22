@@ -56,6 +56,21 @@ export class ProdutoService {
     });
   }
 
+  removerProdutoCarrinho(id) {
+    return new Promise((resolvido, rejeitado) => {
+
+      fetch('/api/remover_produto_carrinho', {
+        method: 'POST',
+        body: JSON.stringify(
+          { id }
+        ),
+        headers: { 'Content-Type': 'application/json' }
+      }).then(resultado => resultado.json())
+        .then(result => resolvido(result))
+        .catch(rejeitado)
+    });
+  }
+
   selecionarProduto(id) {
     return new Promise((resolvido, rejeitado) => {
 
@@ -71,7 +86,7 @@ export class ProdutoService {
     });
   }
 
-  comprar(ID_PESSOA, ID_PRODUTO) {
+  comprar(QUANTIDADE, ID_PESSOA, ID_PRODUTO) {
     return new Promise((resolvido, rejeitado) => {
       fetch('/api/comprar_produto', {
         method: 'POST',
@@ -79,7 +94,7 @@ export class ProdutoService {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(
-          { ID_PESSOA, ID_PRODUTO }
+          { QUANTIDADE, ID_PESSOA, ID_PRODUTO }
         )
       }).then(resultado => resultado.json())
         .then(result => resolvido(result))

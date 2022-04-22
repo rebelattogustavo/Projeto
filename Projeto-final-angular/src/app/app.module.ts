@@ -19,6 +19,7 @@ import { CadastroProdutoComponent } from './cadastros/cadastro-produto/cadastro-
 import { CheckLogged } from './checkLogged.canActivate';
 import { CarrinhoComponent } from './tela-principal/carrinho/carrinho.component';
 import { CompraComponent } from './tela-principal/compra/compra.component';
+import { FinalizarPedidoComponent } from './tela-principal/finalizar-pedido/finalizar-pedido.component';
 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
@@ -72,6 +73,11 @@ export function getAuthServiceConfigs() {
       { 
         path: 'compra/:id_produto', 
         component: CompraComponent,
+        canActivate: [CheckLogged],
+      },
+      { 
+        path: 'finalizar-pedido', 
+        component: FinalizarPedidoComponent,
         canActivate: [CheckLogged],
       },
     ]),

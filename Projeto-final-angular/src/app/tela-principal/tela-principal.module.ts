@@ -9,6 +9,7 @@ import { CadastroProdutoComponent } from '../cadastros/cadastro-produto/cadastro
 import { FormsModule } from '@angular/forms';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { CompraComponent } from './compra/compra.component';
+import { FinalizarPedidoComponent } from './finalizar-pedido/finalizar-pedido.component';
 
 const routes: Routes = [
   { 
@@ -28,7 +29,7 @@ const routes: Routes = [
     CadastrosModule,
     FormsModule
   ],
-  declarations: [MainComponent, MainManagerComponent, CarrinhoComponent, CompraComponent],
+  declarations: [MainComponent, MainManagerComponent, CarrinhoComponent, CompraComponent, FinalizarPedidoComponent],
   providers: [CheckLogged]
 })
 export class TelaPrincipalModule { }

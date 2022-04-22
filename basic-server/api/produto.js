@@ -19,6 +19,18 @@ inserirRota("/remover_produto", (dados, resposta) => {
       });
   });
 
+inserirRota("/remover_produto_carrinho", (dados, resposta) => {
+    console.log("Remover: ",dados);
+    database(`DELETE FROM CARRINHO WHERE ID = ${dados.id}`)
+      .then((result) => {
+        console.log("DELETADO")
+        resposta(result)
+      }).catch((erro) => {
+        console.log(erro)
+          resposta({resposta: erro})
+      });
+  });
+
 inserirRota("/selecionar_produto", (dados, resposta) => {
     console.log("Selecionar: ",dados);
     database(`SELECT * FROM PRODUTO WHERE ID = ${dados.id}`)
@@ -64,7 +76,7 @@ inserirRota("/selecionar_produto", (dados, resposta) => {
   inserirRota("/comprar_produto", function (dados, resposta) {
     console.log("Dados comprar: ", dados);
     database(
-      `INSERT INTO CARRINHO VALUES(null, ${dados.ID_PESSOA}, ${dados.ID_PRODUTO})`
+      `INSERT INTO CARRINHO (ID, QUANTIDADE, ID_PESSOA, ID_PRODUTO) VALUES(null, ${dados.QUANTIDADE}, ${dados.ID_PESSOA}, ${dados.ID_PRODUTO})`
     )
       .then((result) => {
         resposta(result);

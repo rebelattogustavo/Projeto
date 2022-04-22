@@ -31,6 +31,10 @@ body{
   text-align: center;
 }
 
+#logo-txt{
+  text-align: center;
+}
+
 .icone-carrinho{
   cursor: pointer;
 }

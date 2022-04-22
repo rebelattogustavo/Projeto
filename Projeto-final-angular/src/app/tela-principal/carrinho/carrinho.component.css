@@ -1,6 +1,39 @@
 *{
     color: white;
 }
+
+.txt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    color: white;
+  }
+  
+  #logo-txt{
+    text-align: center;
+  }
+
+  #logo-txt:hover{
+      cursor: pointer;
+  }
+  
+  .icone-carrinho{
+    cursor: pointer;
+  }
+  
+  #fundo-header{
+    display: flex;
+    justify-content: center;
+    background-color: gray;
+    height: 16vh;
+    width: auto;
+    margin: -2% 0 0 -2.5% ;
+    align-items: center;
+  }
+
 .div-body{
     display: flex;
     justify-content: center;
@@ -34,4 +67,14 @@
     align-items: center;
     flex-wrap: wrap;
     column-gap: 15px;
+}
+
+.div-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.finaliza-button{
+  color: black;
 }

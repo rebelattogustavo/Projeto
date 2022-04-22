@@ -51,6 +51,12 @@ export class MainComponent implements OnInit {
     this.route.navigate(['/main'])
   }
 
+  logOut(){
+    localStorage.removeItem("LogadoUser");
+    localStorage.removeItem("LogadoManager");
+    this.route.navigate([''])
+  }
+
   comprar(index) {
       this.route.navigate(["/compra", index]);
     }
