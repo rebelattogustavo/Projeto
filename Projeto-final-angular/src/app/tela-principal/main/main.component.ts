@@ -61,8 +61,10 @@ export class MainComponent implements OnInit {
       this.route.navigate(["/compra", index]);
     }
 
-    carrinho(){
-      this.route.navigate(["./carrinho"])
-    }
-  
+  carrinho(){
+    this.route.navigate(["./carrinho"])
   }
+
+  
+
+}

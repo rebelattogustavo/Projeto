@@ -79,4 +79,8 @@ export class CarrinhoComponent implements OnInit {
     })
   }
 
+  voltar(id){
+    this.route.navigate(["/compra", this.id])
+  }
+
 }

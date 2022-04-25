@@ -1,12 +1,20 @@
 <body>
   <header>
     <div id="fundo-header">
+      <div class="div-flecha">
+        <svg (click)="voltar()" class="icone-flecha" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512"><path d="M17.17,24a1,1,0,0,1-.71-.29L8.29,15.54a5,5,0,0,1,0-7.08L16.46.29a1,1,0,1,1,1.42,1.42L9.71,9.88a3,3,0,0,0,0,4.24l8.17,8.17a1,1,0,0,1,0,1.42A1,1,0,0,1,17.17,24Z"/></svg>
+      </div>
       <div class="txt">
         <div>
           <h1 id="logo-txt" (click)="redimensiona()">10ZÃO TÊNIS</h1>
         </div>
+      </div>
+      <div class="div-icones">
         <div>
           <svg class="icone-carrinho" (click)="carrinho()" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="25" height="20" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg" id="_01_align_center" data-name="01 align center"><path d="M24,3H4.242L4.2,2.649A3,3,0,0,0,1.222,0H0V2H1.222a1,1,0,0,1,.993.883L3.8,16.351A3,3,0,0,0,6.778,19H20V17H6.778a1,1,0,0,1-.993-.884L5.654,15H21.836ZM20.164,13H5.419L4.478,5H21.607Z" fill="#ffffff" data-original="#000000"/><circle cx="7" cy="22" r="2" fill="#ffffff" data-original="#000000"/><circle cx="17" cy="22" r="2" fill="#ffffff" data-original="#000000"/></g></g></svg>
+        </div>
+        <div>
+          <button (click)="logOut()" class="button-log">LogOut</button>
         </div>
       </div>
     </div>
@@ -14,16 +22,16 @@
   <div class="div-body">
     <div class="div-container">
         <div class="nome-prod">
-          <h1>{{nome}}</h1>
+          <h1 class="textos">{{nome}}</h1>
         </div> 
         <div class="div-img">
             <img src="{{img}}" alt="" class="img-tenis">
         </div>
         <div class="preco-prod">
-          <h2>{{preco}}</h2>
+          <h2 class="textos">R${{preco}}</h2>
         </div>
         <div class="div-estoq">
-          <p>Disponível: {{qtd}}</p> 
+          <p class="textos">Disponível: {{qtd}}</p> 
           <button (click)="addCarrinho()" class="add-button">Adicionar ao carrinho</button>
         </div>
     </div>

@@ -36,6 +36,7 @@ export class CompraComponent implements OnInit {
         this.listaCarrinho.push(info)
       })
     })
+
     if (this.route.url.length > 10) {
       this.id = this.route.url.substring(this.route.url.length - 2);
     } else {
@@ -59,6 +60,12 @@ export class CompraComponent implements OnInit {
 
   carrinho(){
     this.route.navigate(["/carrinho"])
+  }
+
+  logOut(){
+    localStorage.removeItem("LogadoUser");
+    localStorage.removeItem("LogadoManager");
+    this.route.navigate([''])
   }
 
   addCarrinho(){
@@ -86,6 +93,10 @@ export class CompraComponent implements OnInit {
         }
       }
     }
+  }
+
+  voltar(){
+    this.route.navigate(['/main'])
   }
 
 }
